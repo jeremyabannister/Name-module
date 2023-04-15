@@ -12,7 +12,8 @@ public struct
         Comparable,
         CustomStringConvertible,
         ExpressibleByStringLiteral,
-        Hashable {
+        Hashable,
+        RawRepresentable {
     
     ///
     public var asString: String
@@ -80,4 +81,21 @@ extension Name {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.asString == rhs.asString
     }
+}
+
+// MARK: RawRepresentable
+extension Name {
+    
+    ///
+    public var rawValue: String {
+        self.asString
+    }
+    
+    ///
+    public init? (rawValue: String) {
+        self.init(stringLiteral: rawValue)
+    }
+    
+    ///
+    public typealias RawValue = String
 }

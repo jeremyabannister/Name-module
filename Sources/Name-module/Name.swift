@@ -23,7 +23,7 @@ public struct
     }
 }
 
-///
+// MARK: Codable
 extension Name {
     
     ///
@@ -37,7 +37,7 @@ extension Name {
     }
 }
 
-///
+// MARK: Comparable
 extension Name {
     
     ///
@@ -46,25 +46,7 @@ extension Name {
     }
 }
 
-///
-extension Name {
-    
-    ///
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.asString == rhs.asString
-    }
-}
-
-///
-extension Name {
-    
-    ///
-    public func hash (into hasher: inout Hasher) {
-        self.asString.hash(into: &hasher)
-    }
-}
-
-///
+// MARK: CustomStringConvertible
 extension Name {
     
     ///
@@ -73,11 +55,29 @@ extension Name {
     }
 }
 
-///
+// MARK: ExpressibleByStringLiteral
 extension Name {
     
     ///
     public init (stringLiteral value: String) {
         self.init(value)
+    }
+}
+
+// MARK: Hashable
+extension Name {
+    
+    ///
+    public func hash (into hasher: inout Hasher) {
+        self.asString.hash(into: &hasher)
+    }
+}
+
+// MARK: Equatable
+extension Name {
+    
+    ///
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.asString == rhs.asString
     }
 }

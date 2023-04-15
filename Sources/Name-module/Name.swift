@@ -10,6 +10,7 @@ public struct
     Name:
         Codable,
         Comparable,
+        CustomStringConvertible,
         ExpressibleByStringLiteral,
         Hashable {
     
@@ -60,6 +61,15 @@ extension Name {
     ///
     public func hash (into hasher: inout Hasher) {
         self.asString.hash(into: &hasher)
+    }
+}
+
+///
+extension Name {
+    
+    ///
+    public var description: String {
+        self.asString
     }
 }
 
